@@ -84,7 +84,7 @@ public class vTest {
         cookieButton.click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         driver.findElement(By.xpath("/html/body/div[3]/div[3]/div/div[2]/div[2]/div[2]/button")).click();
-        //waiting explicit
+        //waiting explicit (image)
         WebElement image = driver.findElement(By.xpath("/html/body/div[2]/div[4]/div/div/div/a/img[1]"));
         WebDriverWait imageWait = new WebDriverWait(driver, Duration.ofSeconds(40));
         imageWait.until(ExpectedConditions.visibilityOf(image));
