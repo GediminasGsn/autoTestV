@@ -112,7 +112,7 @@ public class vTest {
         driver.findElement(By.xpath("//*[@id=\"app\"]/div[5]/div/div/div/div[2]/div/div/form/div[1]/div/div[3]/div/div/div[3]/div/div/span[1]/button")).click();
         driver.findElement(By.xpath("/html/body/div[2]/div[5]/div/div/div/div[2]/div/div/form/div[1]/div/div[3]/div/div/div[3]/div/div/span[2]/div/div/button[27]")).click();
         //Insert email
-        driver.findElement(By.xpath("/html/body/div[2]/div[5]/div/div/div/div[2]/div/div/form/div[1]/div/div[4]/div/div[1]/input")).sendKeys("dhghopl@gmail.com");
+        driver.findElement(By.xpath("/html/body/div[2]/div[5]/div/div/div/div[2]/div/div/form/div[1]/div/div[4]/div/div[1]/input")).sendKeys("podcbnj@gmail.com");
         //Insert phone
         driver.findElement(By.xpath("/html/body/div[2]/div[5]/div/div/div/div[2]/div/div/form/div[1]/div/div[5]/div/div[1]/input")).sendKeys("61478559");
 
@@ -159,7 +159,7 @@ public class vTest {
         driver.findElement(By.xpath("/html/body/div[2]/div[4]/div/div/div/button")).click();
         driver.findElement(By.xpath("/html/body/div[2]/div[1]/header/div[2]/div/div/div[4]/nav/div[1]/button")).click();
         //insert loging information
-        driver.findElement(By.xpath("/html/body/div[2]/div[5]/div/div/div/div[2]/div/div[2]/div/form/div[1]/div/input")).sendKeys("dhghopl@gmail.com");
+        driver.findElement(By.xpath("/html/body/div[2]/div[5]/div/div/div/div[2]/div/div[2]/div/form/div[1]/div/input")).sendKeys("podcbnj@gmail.com");
         driver.findElement(By.xpath("/html/body/div[2]/div[5]/div/div/div/div[2]/div/div[2]/div/form/div[2]/div/input")).sendKeys("ViskisViskutis5");
         //Click login
         driver.findElement(By.xpath("/html/body/div[2]/div[5]/div/div/div/div[2]/div/div[2]/div/form/div[4]/button")).click();
@@ -188,7 +188,8 @@ public class vTest {
         //Insert delivery information
         driver.findElement(By.xpath("/html/body/div[1]/div[5]/div/div/div/div[2]/div[2]/div/form/div[1]/div/div[2]/div/div[1]/div/div/input")).sendKeys("Rygos g. 46");
         //Click search
-        driver.findElement(By.xpath("/html/body/div[1]/div[5]/div/div/div/div[2]/div[2]/div/form/div[1]/div/div[3]/div/div[2]/button")).click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.findElement(By.xpath("/html/body/div[1]/div[5]/div/div/div/div[2]/div[2]/div/form/div[1]/div/div[2]/div/div[2]/button")).click();
         //Click on address
         driver.findElement(By.xpath("/html/body/div[1]/div[5]/div/div/div/div[2]/div[2]/div/form/div[1]/div/div[2]/div[1]/button")).click();
         //Click proceed button
@@ -201,6 +202,14 @@ public class vTest {
         driver.findElement(By.xpath("/html/body/div[1]/div[5]/div/div/div/div[2]/div[2]/button")).click();
         //Go to cart
         driver.findElement(By.xpath("/html/body/div[1]/div[5]/div/div/div/div[2]/div[3]/div[1]/button")).click();
+        //Name verification
+        driver.findElement(By.xpath("/html/body/div[1]/div[1]/main/section/div/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div/div[1]/div/div[2]/a")).click();
+        WebElement element = driver.findElement(By.xpath("/html/body/div[1]/div[1]/main/div[2]/section[1]/div/div/div/div/div/div[2]/div[3]/div/div[1]/div/div[2]/strong"));
+        String expectedText = "Viskis";
+        Assert.assertEquals(element.getText(), expectedText);
+        //Price verification
+
+
 
 
 
