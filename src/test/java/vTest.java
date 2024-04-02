@@ -21,6 +21,7 @@ public class vTest {
         driver.get("https://vynoteka.lt/");
 
     }
+
     @Test //TestNG anotacija
     public void test2() {
         WebDriver driver = new ChromeDriver();
@@ -51,7 +52,7 @@ public class vTest {
         try {
             TimeUnit.SECONDS.sleep(5);// wait for 5 seconnd
 
-           } catch (InterruptedException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
 //          wait explicit
@@ -70,6 +71,7 @@ public class vTest {
         Assert.assertTrue(viskis);
 
     }
+
     @Test //TestNG anotacija
     public void test3() {
         WebDriver driver = new ChromeDriver();
@@ -110,7 +112,7 @@ public class vTest {
         driver.findElement(By.xpath("//*[@id=\"app\"]/div[5]/div/div/div/div[2]/div/div/form/div[1]/div/div[3]/div/div/div[3]/div/div/span[1]/button")).click();
         driver.findElement(By.xpath("/html/body/div[2]/div[5]/div/div/div/div[2]/div/div/form/div[1]/div/div[3]/div/div/div[3]/div/div/span[2]/div/div/button[27]")).click();
         //Insert email
-        driver.findElement(By.xpath("/html/body/div[2]/div[5]/div/div/div/div[2]/div/div/form/div[1]/div/div[4]/div/div[1]/input")).sendKeys("mrHeisenber@gmail.com");
+        driver.findElement(By.xpath("/html/body/div[2]/div[5]/div/div/div/div[2]/div/div/form/div[1]/div/div[4]/div/div[1]/input")).sendKeys("dhghopl@gmail.com");
         //Insert phone
         driver.findElement(By.xpath("/html/body/div[2]/div[5]/div/div/div/div[2]/div/div/form/div[1]/div/div[5]/div/div[1]/input")).sendKeys("61478559");
 
@@ -118,9 +120,65 @@ public class vTest {
         driver.findElement(By.xpath("/html/body/div[2]/div[5]/div/div/div/div[2]/div/div/form/div[1]/div/div[6]/div/div/input")).sendKeys("ViskisViskutis5");
         driver.findElement(By.xpath("/html/body/div[2]/div[5]/div/div/div/div[2]/div/div/form/div[1]/div/div[7]/div/div/input")).sendKeys("ViskisViskutis5");
         //Term and conditions
-        driver.findElement(By.xpath("/html/body/div[2]/div[5]/div/div/div/div[2]/div/div/form/div[1]/div/div[8]/div[1]/div[1]/label/input")).click();
+        driver.findElement(By.xpath("/html/body/div[2]/div[5]/div/div/div/div[2]/div/div/form/div[1]/div/div[8]/div[1]/div/label")).click();
         //Register
-        driver.findElement(By.xpath("/html/body/div[1]/div[5]/div/div/div/div[2]/div/div/form/div[2]/div/div[2]/button")).click();
-
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.findElement(By.xpath("/html/body/div[2]/div[5]/div/div/div/div[2]/div/div/form/div[2]/div/div[2]/button")).click();
+        //Pass verification
+        try {
+            Thread.sleep(40 * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+        WebElement button = driver.findElement(By.xpath("/html/body/div[2]/div[5]/div/div/div/div[2]/div/form/div[3]/div[2]/button"));
+
     }
+
+    @Test //TestNG anotacija
+    public void test4() {
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://vynoteka.lt/");
+        //maximize browser window
+        driver.manage().window().maximize();
+        //Age verification
+        driver.findElement(By.xpath("/html/body/div[2]/div[1]/div[2]/div/div/div/div/div[2]/div[3]/div/div[1]/button")).click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        //Cookie click
+        WebElement cookieButton = driver.findElement(By.xpath("/html/body/div[1]/div[1]/div/div[1]/a[1]"));
+        cookieButton.click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        driver.findElement(By.xpath("/html/body/div[3]/div[3]/div/div[2]/div[2]/div[2]/button")).click();
+        //waiting explicit (image)
+        WebElement image = driver.findElement(By.xpath("/html/body/div[2]/div[4]/div/div/div/a/img[1]"));
+        WebDriverWait imageWait = new WebDriverWait(driver, Duration.ofSeconds(40));
+        imageWait.until(ExpectedConditions.visibilityOf(image));
+        //verification
+        boolean isDisplayed = image.isDisplayed();
+        Assert.assertTrue(isDisplayed);
+        //Click off for image
+        driver.findElement(By.xpath("/html/body/div[2]/div[4]/div/div/div/button")).click();
+        driver.findElement(By.xpath("/html/body/div[2]/div[1]/header/div[2]/div/div/div[4]/nav/div[1]/button")).click();
+        //insert loging information
+        driver.findElement(By.xpath("/html/body/div[2]/div[5]/div/div/div/div[2]/div/div[2]/div/form/div[1]/div/input")).sendKeys("dhghopl@gmail.com");
+        driver.findElement(By.xpath("/html/body/div[2]/div[5]/div/div/div/div[2]/div/div[2]/div/form/div[2]/div/input")).sendKeys("ViskisViskutis5");
+        //Click login
+        driver.findElement(By.xpath("/html/body/div[2]/div[5]/div/div/div/div[2]/div/div[2]/div/form/div[4]/button")).click();
+        //Wait for web to load
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        //Search for product
+        driver.findElement(By.xpath("/html/body/div[2]/div[1]/header/div[2]/div/div/div[3]/div/div/div/form/div[1]/div/input")).sendKeys("Viskis");
+        try {
+            TimeUnit.SECONDS.sleep(5);// wait for 5 seconnd
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.findElement(By.xpath("/html/body/div[2]/div[1]/header/div[2]/div/div/div[3]/div/div/div/form/div[1]/button")).click();
+        //Wait for results to load
+        WebDriverWait messageWait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        //Click on product
+
+    }
+}
